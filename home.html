@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Approval Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h2>Loan Approval Prediction</h2>
+    <form method="post">
+        <label>Gender (0=Female, 1=Male):</label>
+        <input type="number" name="Gender" required><br>
+        
+        <label>Married (0=No, 1=Yes):</label>
+        <input type="number" name="Married" required><br>
+        
+        <label>Dependents (0, 1, 2, 3+):</label>
+        <input type="number" name="Dependents" required><br>
+        
+        <label>Education (0=Not Graduate, 1=Graduate):</label>
+        <input type="number" name="Education" required><br>
+        
+        <label>Self Employed (0=No, 1=Yes):</label>
+        <input type="number" name="Self_Employed" required><br>
+        
+        <label>Applicant Income:</label>
+        <input type="number" name="ApplicantIncome" required><br>
+        
+        <label>Coapplicant Income:</label>
+        <input type="number" step="0.01" name="CoapplicantIncome" required><br>
+        
+        <label>Loan Amount:</label>
+        <input type="number" step="0.01" name="LoanAmount" required><br>
+        
+        <label>Loan Amount Term:</label>
+        <input type="number" name="Loan_Amount_Term" required><br>
+        
+        <label>Credit History (0 or 1):</label>
+        <input type="number" step="0.01" name="Credit_History" required><br>
+        
+        <label>Property Area (0=Rural, 1=Semiurban, 2=Urban):</label>
+        <input type="number" name="Property_Area" required><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction %}
+    <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
+
